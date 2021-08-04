@@ -1,0 +1,186 @@
+﻿@page "/"
+@using PROG3_T9.Data
+
+<div class="container p-4">
+    <h2 style="align-content:center">
+        Solicitar vacunacion en casa!
+        </h2>
+    <EditForm Model="request" OnSubmit="Send">
+        <DataAnnotationsValidator />
+        <div class="form-group row">
+            <label for="Cardid" class="col-md-2 col-form-label"><b>Cedula* (Sin guiones)</b></label>
+            <div class="col-md-10">
+                <InputText id="ced" class="form-control" @bind-Value="request.CardId" maxlength="11"/>
+                <ValidationMessage For="@(() => request.CardId)" />
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="Name" class="col-md-2 col-form-label"><b>Nombre*</b></label>
+            <div class="col-md-10">
+                <InputText id="nom" class="form-control" @bind-Value="request.Name" />
+                <ValidationMessage For="@(() => request.Name)" />
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="LastName" class="col-md-2 col-form-label"><b>Apellido</b></label>
+            <div class="col-md-10">
+                <InputText id="apl" class="form-control" @bind-Value="request.LastName" />
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="Phone" class="col-md-2 col-form-label"><b>Telefono* (Sin guiones)</b></label>
+            <div class="col-md-10">
+                <InputText id="phone" class="form-control" @bind-Value="request.Phone" maxlength="10" />
+                <ValidationMessage For="@(() => request.Phone)" />
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="Email" class="col-md-2 col-form-label"><b>Correo*</b></label>
+            <div class="col-md-10">
+                <InputText id="mail" class="form-control" @bind-Value="request.Email" />
+                <ValidationMessage For="@(() => request.Email)" />
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="Birthdate" class="col-md-2 col-form-label"><b>Fecha Nac.</b></label>
+            <div class="col-md-10">
+                <InputText id="date" class="form-control" @bind-Value="request.Birthdate" />
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="Bloodtype" class="col-md-2 col-form-label"><b>Tipo de sangre</b></label>
+            <div class="col-md-10">
+                <InputSelect id="Drop" @bind-Value="@DropId" class="form-control">
+                    @foreach (var i in Drop)
+                    {
+                        <option value="@i.Id"> @i.Type</option>
+                    }
+                </InputSelect>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="Country" class="col-md-2 col-form-label"><b>Provincia</b></label>
+            <div class="col-md-10">
+                <InputText id="pro" class="form-control" @bind-Value="request.Country" />
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="Address" class="col-md-2 col-form-label"><b>Direccion</b></label>
+            <div class="col-md-10">
+                <InputText id="dire" class="form-control" @bind-Value="request.Address" />
+            </div>
+        </div>
+        <center><h4> Click al mapa en tu direccion para tomar la Latitud y longitud actual.</h4></center>
+        <div class="form-group row">
+            <label for="Map" class="col-md-2 col-form-label"><b>Seleccione</b></label>
+            <div class="col-md-10">
+                <RadzenGoogleMap Style="height:400px;" Zoom="@zoom" Center="@(new GoogleMapPosition() { Lat= 18.735693, Lng= -70.162651})" MapClick="@OnMapClick">
+
+                </RadzenGoogleMap>
+            </div>
+        </div>
+        <br />
+        <div class="form-group row">
+            <label for="Lat" class="col-md-2 col-form-label"><b>Latitud*</b></label>
+            <div class="col-md-10">
+                <InputText id="ced" class="form-control" @bind-Value="@request.Lat" readonly />
+                <ValidationMessage For="@(() => request.Lat)" />
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="Lgn" class="col-md-2 col-form-label"><b>Longitud*</b></label>
+            <div class="col-md-10">
+                <InputText id="ced" class="form-control" @bind-Value="@request.Lgn" readonly />
+                <ValidationMessage For="@(() => request.Lgn)" />
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="Address" class="col-md-2 col-form-label"><b>Le ha dado Covid? (SI/NO)</b></label>
+            <div class="col-md-10">
+                <InputText id="dire" class="form-control" @bind-Value="request.Covid_confirmation" maxlength="2" />
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="Lgn" class="col-md-2 col-form-label"><b>Porque debe ser vacunado en casa?*</b></label>
+            <div class="col-md-10">
+                <InputTextArea id="ced" class="form-control" @bind-Value="@request.Justify" />
+                <ValidationMessage For="@(() => request.Justify)" />
+            </div>
+        </div>
+        <br />
+        <div class="alert alert-success d-flex align-items-center" role="alert">
+            <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Success:"><use xlink:href="#check-circle-fill" /></svg>
+            <div>
+                <b>@success</b>
+            </div>
+        </div>
+        <div class="alert alert-danger d-flex align-items-center" role="alert">
+            <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill" /></svg>
+            <div>
+                <b>@failed</b>
+            </div>
+        </div>
+        <center><button type="submit" class="btn btn-primary">Enviar Formulario</button></center>
+    </EditForm>
+</div>
+
+
+
+@code{
+    private Request request { get; set; } = new Request();
+    DataContext db = new DataContext();
+    string DropId = "0";
+    string success, failed;
+    List<Dropitems> Drop = new List<Dropitems>();
+    DataProcess exe = new DataProcess();
+    int zoom = 10;
+    protected override void OnInitialized()
+    {
+        Drop.Add(new Dropitems() {Id = 0, Type = "--SELECCIONE UNO--" });
+        Drop.Add(new Dropitems() { Id = 1, Type = "A+" });
+        Drop.Add(new Dropitems() { Id = 2, Type = "B+" });
+        Drop.Add(new Dropitems() { Id = 3, Type = "O+" });
+        Drop.Add(new Dropitems() { Id = 4, Type = "AB+" });
+        Drop.Add(new Dropitems() { Id = 5, Type = "A-" });
+        Drop.Add(new Dropitems() { Id = 6, Type = "B-" });
+        Drop.Add(new Dropitems() { Id = 7, Type = "O-" });
+        Drop.Add(new Dropitems() { Id = 8, Type = "AB-" });
+    }
+    void OnMapClick(GoogleMapClickEventArgs args)
+    {
+        request.Lat = args.Position.Lat.ToString();
+        request.Lgn = args.Position.Lng.ToString();
+    }
+    public void Send()
+    {
+        try
+        {
+            var query = from s in Drop
+                        where s.Id == int.Parse(DropId)
+                        select s;
+            Dropitems registro = query.First();
+            request.BloodType = registro.Type;
+
+            var query2 = from r in db.Requests
+                         where r.Email == request.Email
+                         select r;
+            if (query2.Count() != 0)
+            {
+                failed = "Usted ya ha hecho una solicitud...";
+            }
+            else
+            {
+                failed = "";
+                exe.Save(request);
+                success = $"Solicitud enviada, gracias {request.Name} {request.LastName} por preferir nuestros servicios!";
+                request = new Request();
+                DropId = "0";
+            }
+        }
+        catch (Exception)
+        {
+            failed = "Ha ocurrido un error con su solicitud...";
+        }
+
+    }
+}
