@@ -120,7 +120,8 @@
                 <b>@failed</b>
             </div>
         </div>
-        <center><button type="submit" class="btn btn-primary">Enviar Formulario</button></center>
+        <center><button type="submit"  class="btn btn-primary">Enviar Formulario</button></center>
+        
     </EditForm>
 </div>
 
@@ -151,19 +152,20 @@
         request.Lat = args.Position.Lat.ToString();
         request.Lgn = args.Position.Lng.ToString();
     }
+    
     public void Send()
     {
         try
         {
             var query = from s in Drop
-                        where s.Id == int.Parse(DropId)
-                        select s;
+                where s.Id == int.Parse(DropId)
+                select s;
             Dropitems registro = query.First();
             request.BloodType = registro.Type;
 
             var query2 = from r in db.Requests
-                         where r.Email == request.Email
-                         select r;
+                where r.Email == request.Email
+                select r;
             if (query2.Count() != 0)
             {
                 failed = "Usted ya ha hecho una solicitud...";
@@ -172,7 +174,31 @@
             {
                 failed = "";
                 exe.Save(request);
+
+                string Body =
+                    $"<h1> Saludos estimado/a {request.Name} {request.LastName}. </h1>" +
+                    $"<h4> Su solicitud está por ser aprobada. </h4>" +
+                    $"<h4> Aquí dejamos una copia de los datos que nos provisionó: </h4>" +
+                    $"<h6> Cedula: {request.CardId}</h6>" +
+                    $"<h6> Nombre y apellido: {request.Name} {request.LastName}.</h6>" +
+                    $"<h6> Telefono: {request.Phone}</h6>" +
+                    $"<h6> Fecha de nacimiento: {request.Birthdate}</h6>" +
+                    $"<h6> Tipo de sangre: {request.BloodType}</h6>" +
+                    $"<h6> Provincia: {request.Country}</h6>" +
+                    $"<h6> Latitud: {request.Lat}</h6>" +
+                    $"<h6> Longitud: {request.Lgn}</h6>" +
+                    $"<h6> Le ha dado covid: {request.Covid_confirmation}</h6>" +
+                    $"<h6> Justificación de solitud: {request.Justify}</h6>";
+                    
+                MailSender OnSend = new MailSender
+                    ("wondereggi3551@gmail.com", 
+                        request.Email, 
+                        "MejiaHuascar230402", Body );
+        
+                OnSend.SendMail();
+                
                 success = $"Solicitud enviada, gracias {request.Name} {request.LastName} por preferir nuestros servicios!";
+                
                 request = new Request();
                 DropId = "0";
             }
@@ -181,6 +207,5 @@
         {
             failed = "Ha ocurrido un error con su solicitud...";
         }
-
     }
 }
