@@ -8,39 +8,137 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>PROG3-T9</title>
-    <base href="~/" />
-    <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css" />
-    <link href="css/site.css" rel="stylesheet" />
-    <link href="_content/Radzen.Blazor/css/default-base.css" rel="stylesheet" />
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>PROG3-T9</title>
+	<base href="~/" />
+	<link rel="stylesheet" href="css/bootstrap/bootstrap.min.css" />
+	<link href="css/site.css" rel="stylesheet" />
+	<link href="_content/Radzen.Blazor/css/default-base.css" rel="stylesheet" />
 </head>
+<style>
+	/* Footer */
+    @@import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+    section {
+        padding: 60px 0;
+    }
+    body{
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    section .section-title {
+        text-align: center;
+        color: #007b5e;
+        margin-bottom: 50px;
+        text-transform: uppercase;
+    }
+    #footer {
+        background: #007b5e !important;
+        margin-top: auto;
+    }
+    #footer h5{
+    	padding-left: 10px;
+        border-left: 3px solid #eeeeee;
+        padding-bottom: 6px;
+        margin-bottom: 20px;
+        color:#ffffff;
+    }
+    #footer a {
+        color: #ffffff;
+        text-decoration: none !important;
+        background-color: transparent;
+        -webkit-text-decoration-skip: objects;
+    }
+    #footer ul.social li{
+    	padding: 3px 0;
+    }
+    #footer ul.social li a i {
+        margin-right: 5px;
+    	font-size:25px;
+    	-webkit-transition: .5s all ease;
+    	-moz-transition: .5s all ease;
+    	transition: .5s all ease;
+    }
+    #footer ul.social li:hover a i {
+    	font-size:30px;
+    	margin-top:-10px;
+    }
+    #footer ul.social li a,
+    #footer ul.quick-links li a{
+    	color:#ffffff;
+    }
+    #footer ul.social li a:hover{
+    	color:#eeeeee;
+    }
+    #footer ul.quick-links li{
+    	padding: 3px 0;
+    	-webkit-transition: .5s all ease;
+    	-moz-transition: .5s all ease;
+    	transition: .5s all ease;
+    }
+    #footer ul.quick-links li:hover{
+    	padding: 3px 0;
+    	margin-left:5px;
+    	font-weight:700;
+    }
+    #footer ul.quick-links li a i{
+    	margin-right: 5px;
+    }
+    #footer ul.quick-links li:hover a i {
+        font-weight: 700;
+    }
+    
+    @@media (max-width:767px){
+    	#footer h5 {
+        padding-left: 0;
+        border-left: transparent;
+        padding-bottom: 0px;
+        margin-bottom: 10px;
+    }
+    }
+
+</style>
+
 <body>
-    <nav class="navbar navbar-light bg-dark">
-        <div class="container-fluid">
-            <a class="navbar-brand text-white" href="Index.razor">
-                <img src="/Historial.png" alt="" width="30" height="24" class="d-inline-block align-text-top">
-                VacunateRD
-            </a>
-        </div>
-    </nav>
-    <app>
-        <component type="typeof(App)" render-mode="ServerPrerendered" />
-    </app>
+<nav class="navbar navbar-light bg-dark">
+	<div class="container-fluid">
+		<a class="navbar-brand text-white" href="/">
+			<img src="/Historial.png" alt="" width="30" height="24" class="d-inline-block align-text-top">
+			VacunateRD
+		</a>
+	</div>
+</nav>
+<app>
+	<component type="typeof(App)" render-mode="ServerPrerendered" />
+</app>
 
-    <div id="blazor-error-ui">
-        <environment include="Staging,Production">
-            An error has occurred. This application may no longer respond until reloaded.
-        </environment>
-        <environment include="Development">
-            An unhandled exception has occurred. See browser dev tools for details.
-        </environment>
-        <a href="" class="reload">Reload</a>
-        <a class="dismiss">🗙</a>
-    </div>
+<div id="blazor-error-ui">
+	<environment include="Staging,Production">
+		An error has occurred. This application may no longer respond until reloaded.
+	</environment>
+	<environment include="Development">
+		An unhandled exception has occurred. See browser dev tools for details.
+	</environment>
+	<a href="" class="reload">Reload</a>
+	<a class="dismiss">🗙</a>
+</div>
 
-    <script src="_framework/blazor.server.js"></script>
-    <script src="_content/Radzen.Blazor/Radzen.Blazor.js"></script>
+<script src="_framework/blazor.server.js"></script>
+<script src="_content/Radzen.Blazor/Radzen.Blazor.js"></script>
 </body>
+<hr>
+<section id="footer">
+		<div class="container">
+			<div class="row text-center text-xs-center text-sm-left text-md-left">
+				<div class="row">
+				<div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-2 text-center text-white">
+					<p><u><a href="About">Sobre nosotros </a></u> Click aquí para ver información de los desarrolladores.</p>
+					<p class="h6">© All right Reversed. Programación 3, Amadis Suarez. </p>
+				</div>
+				<hr>
+			</div>	
+		</div></div>
+</section>
 </html>

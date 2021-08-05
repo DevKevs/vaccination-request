@@ -175,3 +175,5 @@ C:\Users\Huascar\Desktop\5toC\Prog1\T9\vaccination-request\PROG3-T9\PROG3-T9\obj
 C:\Users\Huascar\Desktop\5toC\Prog1\T9\vaccination-request\PROG3-T9\PROG3-T9\obj\Debug\netcoreapp3.1\PROG3-T9.dll
 C:\Users\Huascar\Desktop\5toC\Prog1\T9\vaccination-request\PROG3-T9\PROG3-T9\obj\Debug\netcoreapp3.1\PROG3-T9.pdb
 C:\Users\Huascar\Desktop\5toC\Prog1\T9\vaccination-request\PROG3-T9\PROG3-T9\obj\Debug\netcoreapp3.1\PROG3-T9.genruntimeconfig.cache
+C:\Users\Huascar\Desktop\5toC\Prog1\T9\vaccination-request\PROG3-T9\PROG3-T9\obj\Debug\netcoreapp3.1\RazorDeclaration\Pages\About.razor.g.cs
+C:\Users\Huascar\Desktop\5toC\Prog1\T9\vaccination-request\PROG3-T9\PROG3-T9\obj\Debug\netcoreapp3.1\Razor\Pages\About.razor.g.cs

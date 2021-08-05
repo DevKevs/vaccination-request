@@ -105,7 +105,7 @@ using PROG3_T9.Data;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 130 "C:\Users\Huascar\Desktop\5toC\Prog1\T9\vaccination-request\PROG3-T9\PROG3-T9\Pages\Index.razor"
+#line 134 "C:\Users\Huascar\Desktop\5toC\Prog1\T9\vaccination-request\PROG3-T9\PROG3-T9\Pages\Index.razor"
       
     private Request request { get; set; } = new Request();
     DataContext db = new DataContext();
@@ -134,6 +134,7 @@ using PROG3_T9.Data;
     
     public void Send()
     {
+        
         try
         {
             var query = from s in Drop
@@ -151,30 +152,33 @@ using PROG3_T9.Data;
             }
             else
             {
+                
                 failed = "";
-                exe.Save(request);
-
+                
                 string Body =
                     $"<h1> Saludos estimado/a {request.Name} {request.LastName}. </h1>" +
                     $"<h4> Su solicitud está por ser aprobada. </h4>" +
                     $"<h4> Aquí dejamos una copia de los datos que nos provisionó: </h4>" +
-                    $"<h6> Cedula: {request.CardId}</h6>" +
-                    $"<h6> Nombre y apellido: {request.Name} {request.LastName}.</h6>" +
-                    $"<h6> Telefono: {request.Phone}</h6>" +
-                    $"<h6> Fecha de nacimiento: {request.Birthdate}</h6>" +
-                    $"<h6> Tipo de sangre: {request.BloodType}</h6>" +
-                    $"<h6> Provincia: {request.Country}</h6>" +
-                    $"<h6> Latitud: {request.Lat}</h6>" +
-                    $"<h6> Longitud: {request.Lgn}</h6>" +
-                    $"<h6> Le ha dado covid: {request.Covid_confirmation}</h6>" +
-                    $"<h6> Justificación de solitud: {request.Justify}</h6>";
+                    $"<p> Cedula: {request.CardId}</p>" +
+                    $"<p> Nombre y apellido: {request.Name} {request.LastName}.</p>" +
+                    $"<p> Telefono: {request.Phone}</p>" +
+                    $"<p> Fecha de nacimiento: {request.Birthdate}</p>" +
+                    $"<p> Tipo de sangre: {request.BloodType}</p>" +
+                    $"<p> Provincia: {request.Country}</p>" +
+                    $"<p> Latitud: {request.Lat}</p>" +
+                    $"<p> Longitud: {request.Lgn}</p>" +
+                    $"<p> Le ha dado covid: {request.Covid_confirmation}</p>" +
+                    $"<p> Justificación de solitud: {request.Justify}</p>";
                     
                 MailSender OnSend = new MailSender
                     ("wondereggi3551@gmail.com", 
                         request.Email, 
                         "MejiaHuascar230402", Body );
-        
+                
+                success = "Estamos enviando su correo, por favor espere...";
                 OnSend.SendMail();
+                
+                exe.Save(request);
                 
                 success = $"Solicitud enviada, gracias {request.Name} {request.LastName} por preferir nuestros servicios!";
                 
