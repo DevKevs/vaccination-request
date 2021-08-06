@@ -9,6 +9,7 @@
     <PackageReference Include="Blazorise" Version="0.9.4.2" />
     <PackageReference Include="Blazorise.Icons.Material" Version="0.9.4.2" />
     <PackageReference Include="Blazorise.Material" Version="0.9.4.2" />
+    <PackageReference Include="Microsoft.Azure.SignalR" Version="1.4.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="5.0.8" />
     <PackageReference Include="Radzen.Blazor" Version="3.8.1" />
   </ItemGroup>

@@ -1,0 +1,18 @@
+{
+  "dependencies": {
+    "signalr1": {
+      "restored": true,
+      "restoreTime": "2021-08-06T20:29:38.7878584Z"
+    }
+  },
+  "parameters": {
+    "resourceGroup": {
+      "Type": "resourceGroup",
+      "Value": "PROG3-T920210806155540ResourceGroup"
+    },
+    "subscriptionId": {
+      "Type": "subscription",
+      "Value": "432a88ab-6696-4cbf-abe1-61695615a02f"
+    }
+  }
+}

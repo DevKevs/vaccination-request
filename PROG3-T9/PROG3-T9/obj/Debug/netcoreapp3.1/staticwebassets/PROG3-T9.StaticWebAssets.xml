@@ -1,6 +1,6 @@
 ﻿<StaticWebAssets Version="1.0">
-  <ContentRoot BasePath="_content/Blazorise" Path="C:\Users\Huascar\.nuget\packages\blazorise\0.9.4.2\build\..\staticwebassets\" />
-  <ContentRoot BasePath="_content/Blazorise.Icons.Material" Path="C:\Users\Huascar\.nuget\packages\blazorise.icons.material\0.9.4.2\build\..\staticwebassets\" />
-  <ContentRoot BasePath="_content/Blazorise.Material" Path="C:\Users\Huascar\.nuget\packages\blazorise.material\0.9.4.2\build\..\staticwebassets\" />
-  <ContentRoot BasePath="_content/Radzen.Blazor" Path="C:\Users\Huascar\.nuget\packages\radzen.blazor\3.8.1\build\..\staticwebassets\" />
+  <ContentRoot BasePath="_content/Blazorise" Path="C:\Users\gt\.nuget\packages\blazorise\0.9.4.2\build\..\staticwebassets\" />
+  <ContentRoot BasePath="_content/Blazorise.Icons.Material" Path="C:\Users\gt\.nuget\packages\blazorise.icons.material\0.9.4.2\build\..\staticwebassets\" />
+  <ContentRoot BasePath="_content/Blazorise.Material" Path="C:\Users\gt\.nuget\packages\blazorise.material\0.9.4.2\build\..\staticwebassets\" />
+  <ContentRoot BasePath="_content/Radzen.Blazor" Path="C:\Users\gt\.nuget\packages\radzen.blazor\3.8.1\build\..\staticwebassets\" />
 </StaticWebAssets>
